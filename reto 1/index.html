@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculadora Figuras Geométricas</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        color: white;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(
+          219deg,
+          rgba(58, 14, 65, 1) 0%,
+          rgba(9, 21, 47, 1) 100%
+        );
+      }
+      h1 {
+        font-size: 64px;
+        text-align: center;
+      }
+      main {
+        padding: 64px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        width: 100vw;
+      }
+      .presentation {
+        align-items: center;
+        width: fit-content;
+        height: max-content;
+        display: inline-block;
+        padding: 32px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .presentation p {
+        font-weight: normal;
+        text-align: center;
+        margin-top: 28px;
+      }
+      .calculadoras-container {
+        margin-top: 80px;
+      }
+      .calculadoras {
+        margin-top: 32px;
+        display: grid;
+        gap: 64px;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .calculadora {
+        height: fit-content;
+        padding: 32px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin-top: 16px;
+      }
+      input {
+        margin-top: 6px;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 8px;
+        outline: none;
+        color: white;
+        font-size: 16px;
+        padding: 8px;
+      }
+      form button {
+        margin-top: 16px;
+        background: linear-gradient(
+          219deg,
+          rgba(248, 80, 50, 1) 0%,
+          rgba(231, 56, 39, 1) 100%
+        );
+        border: none;
+        font-size: 16px;
+        color: white;
+        font-weight: bold;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      form button:first-of-type {
+        margin-top: 24px;
+      }
+      form span {
+        margin-top: 16px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      @media screen and (min-width: 320px) {
+        main {
+          padding: 64px 16px;
+        }
+        .presentation {
+          max-width: 100%;
+        }
+        h1 {
+          font-size: 32px;
+        }
+        .calculadoras {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media screen and (min-width: 762px) {
+        .calculadoras {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        .calculadoras {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="presentation">
+        <h1>
+          Calculadora de figuras <br />
+          geométricas
+        </h1>
+        <p>
+          Una calculadora para que puedas realizar mejor y más rápido tus tareas
+          de geometría.
+        </p>
+      </section>
+      <section class="calculadoras-container">
+        <h2>Calculadoras</h2>
+        <div class="calculadoras">
+          <div class="calculadora cuadrado">
+            <h3>Cuadrado</h3>
+            <form>
+              <label for="inputCuadrado">Lado del cuadrado</label>
+              <input type="number" id="inputCuadrado" />
+              <button type="button" onclick="calcularPerimetroCuadrado()">
+                Calcular el perímetro
+              </button>
+              <button type="button" onclick="calcularAreaCuadrado()">
+                Calcular el área
+              </button>
+              <span id="resultadoCuadrado">Resultado: </span>
+            </form>
+          </div>
+
+          <div class="calculadora triangulo">
+            <h3>Triángulo</h3>
+            <form>
+              <label for="inputTriangulo1">Lado #1</label>
+              <input type="number" id="inputTriangulo1" />
+              <label for="inputTriangulo2">Lado #2</label>
+              <input type="number" id="inputTriangulo2" />
+              <label for="inputTriangulo3">Base</label>
+              <input type="number" id="inputTriangulo3" />
+              <label for="inputTriangulo3">Altura</label>
+              <input type="number" id="inputTriangulo4" />
+              <button type="button" onclick="calcularPerimetroTriangulo()">
+                Calcular el perímetro
+              </button>
+              <button type="button" onclick="calcularAreaTriangulo()">
+                Calcular el área
+              </button>
+              <span id="resultadoTriangulo">Resultado: </span>
+            </form>
+          </div>
+
+          <div class="calculadora circulo">
+            <h3>Círculo</h3>
+            <form>
+              <label for="inputCirculo">Radio del círculo</label>
+              <input type="number" id="inputCirculo" />
+              <button type="button" onclick="calcularPerimetroCirculo()">
+                Calcular el perímetro
+              </button>
+              <button type="button" onclick="calcularAreaCirculo()">
+                Calcular el área
+              </button>
+              <span id="resultadoCirculo">Resultado: </span>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./figuras.js"></script>
+  </body>
+</html>
